@@ -1,0 +1,448 @@
+
+
+
+					who ? -decides your context/approach
+					|developer/tester/deployer/manager/leads
+				-------------------
+				|		|
+				where		when
+				|space		|time	- requirement/need
+			----------------------------------
+			|		|		|
+			why		what		how
+			|		|		|
+			reason	    inFORMation		implementation/coding
+				 (processed data)		|
+							-----------------
+							|		|
+							success		feedback
+				Java Technology
+					|
+			----------------------------------
+			|		|		|
+			JSE		JEE		JME
+			|		|		|
+		   Core Java		Enterprise	Micro/Mobile
+		   Desktop						
+					WhiteElephant
+						|
+				------------------------------
+				|
+				Enterprise Applicatin Servers
+				  - BEA/Oracle WebLOGIC Server
+				  - IBM - WebSPHERE - WAS
+				  - JBoss
+				
+
+		Calculator		Currency	Android
+					Converter
+					INR/USD
+					50000
+					Enterprise Java (Beans/class/component)
+					
+		association		Session		Entity			Message
+			OOPS concepts	    |spring	   |jdbc/hibernate/JPA	  |	
+		packages		------------	 ------------		 SMS|Mail|Whatsapp
+		exception handling	|	  |	 |	    |ORM tool [ object relational mapping ]
+		multithreading	     Stateless Stateful  BMP	  CMP
+		generics				insert
+							update
+							delete
+	
+						brit parle .. ..  code
+							[snacks	  [snacks
+							shop]	   vending machine]
+							shopkeeper	x
+							|		|
+							you		you
+
+		collections				Persistence
+		file handling
+		jdbc
+
+
+		JEE - Big Building
+		JSE - foundation
+
+
+	Ramesh [Enterprises]
+		cloth store
+		h/w store
+		any type of store
+
+
+	Enterprise Applications has 7 features 
+	because of these 7 features, it is known as enterprise application
+
+
+
+		this is first feature, because it is first feature
+
+	1. Remote capability 
+	
+		Networking - connectivity of machines
+
+
+		java.net
+
+		ServerMachine 	ServerSocket server = new ServerSocket();
+		|serve - BankApplication
+		|
+		|    <--network is must
+		|
+		|request
+		ClientMachine	Socket sock = new Socket();
+		
+
+	2. High Availability - HA 
+		24 x 7
+		365 days (including leap year)
+		- 10 to 6 <-- as an employee
+
+		- bank application 00:00 hours to 23:59 hours
+
+		Clustering
+
+			Server1	Server2	Server3	Server4
+
+			
+	3. Multithreading 
+
+		- available to 100s,1000s, 100000s users
+
+
+	4. Pooling of Resources
+		- POOL - 
+		COMMON RESOURCES TO ALL
+		(REGISTRED/NON-registered)
+			airindia.com		sbi.com
+			| 			|
+			flight search		account opening enquiry
+			enquiry
+		
+	Hyderabad : London : 31st Dec
+	
+		1..2...3..4....500		1..2..3..44...560...
+		per hour/day			per hour/per day
+		|
+	flight list is presented to me
+	- will choose one of the flights
+	- proceed to "ticket booking"	
+
+		
+	5. Caching of Resources
+		(DASHBOARD)
+
+		unique id is required to know
+		you more
+		REGISTER / LOGIN
+		|
+		email
+		birthdate
+		address
+		personal details
+		|
+		STORE 
+			
+	
+	6. Transaction management
+		ACID
+
+		@Transactional
+
+
+		bus conductor
+		|
+		ticket issued/not issued
+
+		atomic
+		consistent
+		isolated
+		durable
+
+	7. Security management
+
+		- TLS - transport layer security
+				https
+
+			presentation layer
+			application layer
+			session layer
+			transport layer
+			data link layer
+				
+			physical layer
+
+	ATM/Mobile/PC
+		|withdraw<--
+		Machine1			Machine2
+		|Client				|Server --- SavingsAccount{}
+		|				|			withdraw()
+		Socket				ServerSocket
+		|				|
+		Aplication, 			Application
+		Presentation, 			PL
+		Session, 			Session
+		transport, 			TLS
+		network, 			NW
+		data link, 			DLL
+		physical------------------------PH
+
+
+			WHY NOT THE OLD APP SERVERS??? - PAID
+
+			WHY SPRING HERE???? - OPEN SOURCE F/W
+
+
+			WHAT IS F/W
+
+
+
+		awareness is important
+
+
+			thought1	thought2	thoughts3.........
+				   |		   |
+				   gap 		   gap
+
+
+
+
+
+
+
+
+
+
+
+
+					    Association
+						|
+			--------------------------------------------------
+			|		|		|		|
+			isA		hasA		usesA		produceA
+			<--- structural----->		<------operational------>
+
+		Machine
+		|isA
+		WashingMachine
+			WashingDrum - hasA
+
+			WashingMachine(Electricity e) {
+			}
+
+			Laundry wash(Water w, Cloth cl[], WashingPowder wp) {
+			
+				..
+				...15 mnts washing 
+				rinse();
+			}
+			rinse(Water w) {
+				10mnts
+				spin();
+			}
+			spin() {
+				5mns
+				end();
+			}
+			end() {
+
+			}
+	
+		class Laundry
+		{
+			WaterBill wb;
+			Electricity eb;
+			WashingPowder wpb;
+
+		}
+
+
+
+
+		What is a framework?
+
+
+		- semi-developed application
+
+			- you develop your application on top of it.
+
+
+			PhotoFramework shop
+				|
+	what is there?				what is not there?
+		|				|
+		various frames	are there!!	photo is not there	
+		wooden/fiber/plastic/glass
+		sizes/shapes
+		|
+		various types of glass
+			reflective/non-reflective
+		some samples
+		look and feel
+
+		PARIS/FRANCE			PARIS/FRANCE	
+		via tour			on your own
+
+			
+
+		Core java 
+		|
+		Threading f/w
+		Collection framework
+		jdbc f/w
+		i/o f/w
+
+		hiberate f/w
+		spring	f/w
+
+
+		Spring is a f/w
+		
+		1. a local method - remote method
+
+		2. a non transactional method - transactional method
+
+		3. a non-threading method - a threading method
+
+		4. a non pooled object - can be a pooled object
+
+		5. a non cached object - can be a cached object
+
+		6. a non secured method - can be a secured method
+
+
+		i want to convert my glider as an aircraft	???
+
+		- book two tickets for an aircraft
+		1 for you and 1 for your glider
+
+		and now your glider is now an aircraft
+	
+		
+
+
+
+		vantage point
+
+
+
+		To write a simple spring application!
+
+
+		1. You make a maven project
+
+		2. In maven (pom.xml) 
+			declare the dependencies of spring libraries
+
+		
+
+
+
+		Machine1	Machine2	Machine3	Machine4
+		Laptop		Branch		ClientSide	Onsite[UK]
+		|		|		|		|
+		Java 11		Java 15		Java 18		Java 20
+		Oracle 11	Oracle 18	Oracle 21	Oracle 23
+		Spring 4.5	Spring 5	Spring 5.3	Spring 5.9
+		Hibernate 4.3	Hiberante 5	Hib 5.3		Hib 5.4
+		Tomcat 8	Tomcat 9	Tomcat 10	Tomcat 11
+
+		maven project---> pull it here--->
+		|
+		pom.xml	
+		|
+		declare 
+		the dependencies
+		(website/jar filename/version)
+		-java 18
+		-oracle 21
+		-spring 5.3
+		-hib 5.3
+		-tom 10
+		|
+		downloaded on your
+		local machine
+
+	
+		1. first look up at
+			local repositories
+		2. company server
+			availed from here
+		3. internet 
+			maven central repositories
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		Spring PROJECT 
+
+
+		1. make a  MAVEN project (style)
+					(pom.xml)
+
+		2. declare Spring libraries in the pom.xml
+			spring core jar files
+
+		3. make spring configuration file 
+			declare the components/bean in it
+
+		4. test the spring project
+			make the objects of your beans
+
+
+			SpringDemo
+				|
+			-----------------
+			|		|
+			src		pom.xml
+			|		|
+		-----------------	dependecines of all the libraries you
+		|		|	require for your application
+		main		test
+		|		|
+	------------------	junit test cases
+	|		|
+	java		resources
+	|		|
+	spring		spring specific
+	coding here	xml configurations here
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+
+		
+
+
+		
+
+
+
+
