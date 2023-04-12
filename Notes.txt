@@ -404,27 +404,92 @@
 			make the objects of your beans
 
 
-			SpringDemo
+100% pure core java code
+	
+1. pom.xml  will have spring librariy dependency tag
+2. myspring.xml - spring container configuration file
+3. your test case to run the container
+		      
+				Demo
 				|
 			-----------------
 			|		|
 			src		pom.xml
 			|		|
-		-----------------	dependecines of all the libraries you
+		-----------------	dependencies of all the libraries you
 		|		|	require for your application
 		main		test
 		|		|
 	------------------	junit test cases
+	|		|			|      @Test
+	java		resources		Test | testCase1() { }
 	|		|
-	java		resources
-	|		|
-	spring		spring specific
+		
 	coding here	xml configurations here
 
+	SavingsAccount	
 
 
 
 
+	Dependency Injection		Inversion Of Control IoC
+	
+
+
+	class SavingsAccount <-- Entity - identified by its PK
+	{
+		void withdraw(float amt) {
+		
+		}
+		void deposit(float amt) {
+		}
+	}	
+
+	class FundTransferService <-- the service class |  SERVICE LAYER
+	{
+		SavingsAccount source; <-- object to be ready | NULL
+		SavingsAccount target; <-- NULL
+
+		FundTransferService(SavingsAccount s, SavingsAccount t)
+		{
+			source=s; //initializing
+			target=t; //initializing
+		}
+		void transferFunds(float amountToTransfer) {
+			source.withdraw(amountToTransfer);
+			target.deposit(amountToTransfer);
+		}
+	}
+
+TEST CASES
+
+	class TransferTest
+	{
+		void testCase1() {
+		
+			somebody is nothing but the spring container
+			|
+			your spring configuration xml file
+			
+			
+			SavingsAccount source = sombody gives the object | new SavingsAccount(50000);
+			SavingsAccount target = somebody gives the object | new SavingsAccount(4000);
+
+			FundTransferService service = somebody gives the object | new FundTransferService(source,target);
+			
+			service.transferFunds(3000);
+			
+		}
+	}
+
+	
+
+	Car 
+	   Engine
+		Piston
+
+
+		
 
 
 
