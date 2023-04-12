@@ -1,0 +1,117 @@
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.sbi.HotelReception;
+import com.sbi.Room;
+import com.sbi.SavingsAccount;
+
+// 2 to 6 
+// 2 to 6 ( 1 hour error handling ) 
+
+// first day 
+
+//TDD - test driven development
+
+public class SavingsAccountTestCase {
+	@Test  /* 4 */
+	public void createObjectInSpringWayTest() {
+		
+		System.out.println("Trying to create spring container....");
+		ApplicationContext container = new ClassPathXmlApplicationContext("myspring.xml"); 
+		System.out.println("container created .. : "+container);
+		
+		HotelReception reception = (HotelReception) container.getBean("myreception");
+		
+		reception.allot();
+		
+		//every class in java has a static data member of the type Class
+		//whose name is class
+		
+		//Room room1 = container.getBean("myroom", Room.class);
+		//room1.relaxing();
+		
+		/*Room room2 = (Room) container.getBean("myroom");
+		room2.relaxing();
+		
+		Room room3 = (Room) container.getBean("myroom");
+		room3.relaxing();*/
+		
+	}
+	
+	
+	
+	
+//	@Test
+//	public void testCase3() {
+//		System.out.println("RUNNING 3RD CASE");
+//		
+//	}
+//	
+//	@Test
+//	public void testCase2() {
+//		
+//		System.out.println("Begin of createSavingsAccountTest");
+//
+//		System.out.println("Trying to create object...of SavingsAccount");
+//		SavingsAccount savings = new SavingsAccount(); //tradition approach to create object....
+//		
+//		Assertions.assertTrue(savings!=null);
+//		System.out.println("Savings Account object is created... "+savings);
+//		
+//		System.out.println("End of createSavingsAccountTest");
+//	}
+	
+	
+	
+	
+//	
+//	@Test //import  org.junit.jupiter.api.Test;   junit 5 libraries to be availed
+//	public void testCase1() {
+//		
+//		
+//		System.out.println("test case 1 wokeup....");
+//		
+//		System.out.println("test case 1 b/f done....");
+//		
+//		Assertions.assertTrue(100>50);
+//
+//		System.out.println("test case 1 lunch done....");
+//		
+//		System.out.println("test case 1 snacks done....");
+//		
+//		System.out.println("test case 1 dinner done....");
+//
+//
+//
+//		System.out.println("test case 1 finished....");
+//
+//	}
+//	
+
+
+	
+}
+
+/*
+		Object
+			|
+	class Kite
+	{
+			int          i;
+			static int   j;
+			static Class class;
+	}
+	
+	Kite k = new Kite();
+	k.i
+	
+	Kite.j
+	Kite.class
+	
+	
+	
+
+
+*/
