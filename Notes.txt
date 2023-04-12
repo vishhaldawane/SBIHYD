@@ -490,10 +490,50 @@ TEST CASES
 
 
 		
+		org.springframework.jdbc.datasource
+						|
+					DriverManagerDataSource
+					 |
+					-setter functions
+					-these funtions to be invoked 
 
 
 
 
+	Convert your entire project as per below structure
+
+
+	com.sbi
+	   | 
+	----------------------------------------------------
+	|	|	|				|
+	table	pojo	repo				service	
+	|	|	 |			  	|
+mydemo.txt   Department DepartmentRepository(i)	  	DepartmentService(i)
+|		|	DeportmentRepositoryImpl(impl)  DepartmentServiceImpl(impl)	
+will contain  deptNo		|				|
+table 	      deptName		loadTheDepartmentDetails()<---loadDeptDetailsService()
+creation      deptLocation
+script
+and 
+DML
+operations
+		
+		1)result set data would be injected in the object of Department class
+
+		2)and this department object would be added in the ArrayList
+
+		3) repeat the step 1 and 2 until the last record of the table
+
+		4) and show the array list output 
+
+Annotation based configurations
+
+	@Component
+	@Repository
+	@Service
+	@Controller
+	
 
 
 
