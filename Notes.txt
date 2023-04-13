@@ -529,18 +529,99 @@ operations
 
 Annotation based configurations
 
-	@Component
-	@Repository
-	@Service
-	@Controller
+	@Component - to declare a bean
+	@Repository - to declare a bean, but what is special in it???
+			it would perform some repository activity like, 
+				insert, update, delete, view, view all on a collection
+
+
+	@Service    - to declare a bean, but what is special in it
+	@Controller - to declare a bean, but what is special in it
+
+
+	Cook and a Chef
+
+	My mom is a home maker, Chef, Owner, CareTaker, 
 	
 
 
 
+Comments			vs				Annotations
+non executable lines					- extra infromation as comment
+							- extended version of comments
+not structured						- annotations are structured
+limited to the source code				- can be available inside the class file
+
+
+/*comment1*/
+/*comment3*/class SavingsAccount /*comment2*/
+{
+	/*comment4*/
+}			
+/*comment5*/
+
+@DevelopedBy(name="deepak", version=1.0) <--- class level annotation
+class SavingsAccount
+{
+
+	@WealthOfCustomer <--- field level annotation
+	float balance;
+
+	@ActivityOfCustomer <-- method level annotation
+	void transfer() {
+	}
+
+}
+
+	---------------------------------------------------------------------------------
+	1		tables		tea_tbl*	pizza_tbl	biryani_tbl
+	2		pojo:		Tea*		Pizza		Biryani				
+	3		repo:					Chef | Repositories
+								       RepositoryImpl
+					TeaRepository*			   BiryaniRepository
+							PizzaRepository	   	
+	Restaurant						Kitchen
+	|
+	|						    NO ADDMISSION
+	---------------------------------------------------------------------------------
+	|4				TeaService-NO	PizzaService	BiryaniService
+	|
+	|					
+	|
+	+-------------Dining TAble
+
+			6 Menu [ Angular UI ]
+
+			Parents	
+		You		Wife
+		|
+	5	|	Kids		TeaControlle-NOr	PizzaController	BiryaniController
+		|			|	
+		+------------Controller 
+				|			DTO objects - data transfer object
+		-----------------------------
+		|	|	 |	|
+	take a way	swiggy	zomato telephonic call
+			app	app
+
+			BillingMachine Controller <-- Queue
 
 
 
-		
+
+	Todays	Menu
+		|
+
+	Wada
+	Idli
+	Dosa
+	..
+	..
+
+
+
+
+
 
 
 		
