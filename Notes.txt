@@ -622,12 +622,156 @@ class SavingsAccount
 
 
 
+				SpringDemo
+					|
+		----------------------------------------------
+			|	|		|
+			pojo	repo		service
+			|	|		|
+		  Employee	Employee	Employee
+		  |		Repository	Serviec
+	mapped with		|		|
+	Employee tbl		addEmp()	addEmpServ()
+				getEmp()
+
+		
+In case if the hsql port already bound / occupied
+
+	1. in the cmd prompt
+		netstat -aon | find "9001" 
+
+		9001 is the port number of hsqldb
+	
+	2. taskkill /F /PID  <process id of the command of netstat of the last column"
+
+	3. restart the hsql process 
+
 
 
 		
 
+	
 
-		
+
+	Spring				ORM			JDBC			
+	|				|			|
+	business logic		Object Relational		pure jdbc code
+	|				Mapping			written by us
+	like 							in the 
+	|							|
+	repository						repository
+	service
+	controller
+	rest controller
+
+
+
+	Object			Relation
+	|			|
+	java object		datase base table
+	|			|
+	object is not		table is not	
+	table			object
+	|			|
+	isA (aggregation)			
+	hasA (composition)
+
+	Account					acc_tbl	  sav_tbl	addr_tbl	
+	|isA
+	SavingsAccount
+	    Address homeAddr; hasA
+	    Address officeAddr; hasA
+
+
+						   <----Account---->  SavingsAccount
+	SavingsAccount savObj1 = new SavingsAccount(101,"Jack",50000, 4.5f);
+	Address h = new Address(21,"West Avenue","Bengaluru","Karnataka",550505);
+	Address o = new Address(45,"East Avenue","Mumbai","Maharashtra",335022);
+
+	savObj1.setHomeAddress(h); // Composition - hasA
+	savObj1.setOfficeAddress(o); // composition - hasA
+
+
+	I want to store this object savObj1 on the database [ PERSISTENCE ]
+	as a row
+
+	how do i store it
+
+	acc_master
+	------------
+	PK <-- 
+	acno	acname	balance		pancard		issued by	issuedDt
+	101	Jack	50000  <--ROW	KDJDE4567P	..		..
+
+
+
+	acc_savings
+	-------------
+		FK <--
+	roi	ac_no
+	4.5	101 <-- ROW
+
+	account_address
+	----------------			FK <---
+	house	street	city	state	pin	ac_no
+	21	WA	Benga	Kar	55..	101 <-- ROW
+	45	EA	Mum	Mah	33..	101 <-- ROW
+	
+
+
+	Address h = new Address(21,"West Avenue","Bengaluru","Karnataka",550505);
+	Address o = new Address(45,"East Avenue","Mumbai","Maharashtra",335022);
+
+	
+
+	One to One	
+			One to Many
+					Many to One
+	
+							Many to Many	
+
+
+	Spring
+		- spring libraries
+		- spring xml
+		- spring test
+
+
+	ORM
+
+		- ORM libraries
+		- orm xml - META-INF/persistence.xml
+
+		- pojo mapped with the table
+		- orm test case
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
