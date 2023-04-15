@@ -30,7 +30,7 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 	@Override
 	public void addEmployee(Employee emp) {
 		// TODO Auto-generated method stub
-		System.out.println("adding the employee.....dataSource : "+dataSource);
+		System.out.println("EmployeeRepositoryImpl: adding the employee.....dataSource : "+dataSource);
 		try {
 			Connection conn = dataSource.getConnection(); //DriverManager.registerDriver is done internally
 			PreparedStatement statement = conn.prepareStatement("INSERT INTO EMPLOYEE VALUES (?,?,?)");
@@ -38,7 +38,7 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 			statement.setString(2, emp.getEmployeeName());
 			statement.setFloat(3, emp.getEmployeeSalary());
 			statement.executeUpdate();
-			System.out.println("New employee record inserted...");
+			System.out.println("EmployeeRepositoryImpl: New employee record inserted...");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -48,7 +48,29 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 	@Override
 	public Employee getEmployee(int empno) {
 		// TODO Auto-generated method stub
-		return null;
+		System.out.println("EmployeeRepositoryImpl:  selecting/searching the employee.....dataSource : "+dataSource);
+		Employee empObj= null;
+		
+		try {
+			Connection conn = dataSource.getConnection(); //DriverManager.registerDriver is done internally
+			Statement statement = conn.createStatement();
+			ResultSet result = statement.executeQuery("SELECT * FROM EMPLOYEE WHERE EMPNO="+empno);
+
+			
+			if(result.next()) {
+				empObj = new Employee(); //allocate the object
+				
+				empObj.setEmployeeNumber(result.getInt(1));
+				empObj.setEmployeeName(result.getString(2));
+				empObj.setEmployeeSalary(result.getFloat(3));
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return empObj;
 	}
 
 	@Override
