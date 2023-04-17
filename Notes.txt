@@ -751,6 +751,101 @@ In case if the hsql port already bound / occupied
 
 
 
+		You are living in your society
+					|
+				--------------------------------------------------------
+				|	|		|			|
+			elevators	security	cleaningstaff		gardners
+			|		|		|			   |
+			liftman		watchman	pickup the daily garbage taking care of plants and trees
+
+		
+	cross-cutting concern - Aspect
+
+			Your application
+				|
+		------------------------------
+		|
+		logging
+
+	security measure	
+	pre activity
+		withdraw() {
+
+		}
+	post activity
+	release security
+
+		deposit() { }
+
+		stopCheque() {
+		}
+
+		applyForCheque() { }
+
+		applyForCreditCard() { }
+
+
+
+				AOP - Aspect Oriented Programming
+
+
+		proxy approach
+
+
+
+		class SavingsAccount
+		{
+			void withdraw()
+			{
+			}
+		}
+
+		Class Weaving
+
+		class SavingsAccountProxy
+		{
+			SavingsAccount savRef;
+
+			void withdraw()
+			{
+				some pre work,e.g., logging or sercurity
+					savRef.withdraw();
+				some post work 
+			}
+		}	
+	
+
+
+		AopAlliance
+
+
+
+
+	@Before
+
+	@After
+
+
+	@Returning
+
+
+	On throwing on exception
+
+
+
+
+			
+
+
+
+
+
+
+
+
+
+
 
 
 
