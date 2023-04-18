@@ -835,7 +835,103 @@ In case if the hsql port already bound / occupied
 
 
 
+
+		Spring boot = spring application in autoconfiguration way
+		|			|
+		|		---------------------------------------------
+		|		|		|			|
+	applicaiton.		pom.xml		springSpecific.xml	META-INF
+	properties		|		|			|
+	|			dependencies	beans configs		persistence.xml
+	KEYs=Values			
 			
+
+	@Component	@Repository	@Service
+			@Component	@Componenet
+
+
+		
+
+
+
+
+
+
+
+
+
+			CrudRepository
+			|	10 functions - declared / CRUD functions in naming conventions
+			|
+			FlightRepository
+			|      they are now the part of this interface too
+			|
+	we will get one implementation of this FlightRepository automatically
+
+
+
+	what is the isA rule?
+
+		Your FLightRepository is also a CrudRepository
+
+		C++
+
+	Java Design Patterns =	23 design patterns
+
+
+		DAO = repository in spring projects + JPA
+
+
+
+		MVC = Model View Controller
+
+
+			Model
+			|
+			database + pojo + repository 
+
+
+			View
+			|
+			html	javascript|generated view|AJAX | jsp (java server pages)
+
+
+			Controller
+			|
+			A Servlet is a controller in any web application
+
+
+
+		DispatcherServlet is a Front Controller
+			|
+			request | responses
+			
+
+		Apartment
+			|
+	ground floor	House1		House2		House3		House4
+	first  floor	House5		House6		House7		House8
+	second  floor	House9		House10		House11		House12
+
+
+		Front Camera - can be maintained at the front gate of the Apartment
+
+			REception - Receptionist | watch man
+
+
+							
+
+
+
+
+
+			
+
+
+
+
+
+
 
 
 
