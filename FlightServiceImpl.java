@@ -1,6 +1,7 @@
 package com.sbi.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -39,10 +40,21 @@ public class FlightServiceImpl implements FlightService {
 		return flightList;
 	}
 	
-	@Transactional
-	void addFlight(Flight flight)
+//	@Transactional
+//	void addFlight(Flight flight)
+//	{
+//		flightRepo.save(flight); //this would invoke the insert query...
+//	}
+	
+	public Optional<Flight> getFlightService(int flightId) throws FlightNotFoundException
 	{
-		flightRepo.save(flight); //this would invoke the insert query...
+		Optional<Flight> flight = flightRepo.findById(flightId);
+		
+		if(flight.isPresent())
+			return flight;
+		else
+			throw new FlightNotFoundException("This flight does not exists : "+flightId);
 	}
+
 
 }
