@@ -40,11 +40,19 @@ public class FlightServiceImpl implements FlightService {
 		return flightList;
 	}
 	
-//	@Transactional
-//	void addFlight(Flight flight)
-//	{
-//		flightRepo.save(flight); //this would invoke the insert query...
-//	}
+	public void addFlightService(Flight flight) throws FlightAlreadyExistsException
+	{
+		Optional<Flight> flightFound = flightRepo.findById(flight.getFlightId());
+		
+		if(flightFound.isPresent()) {
+			throw new FlightAlreadyExistsException("This flight already exist "+flight.getFlightId()); 
+		}
+
+		else
+			flightRepo.save(flight);
+		
+	}
+
 	
 	public Optional<Flight> getFlightService(int flightId) throws FlightNotFoundException
 	{

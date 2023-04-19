@@ -14,6 +14,7 @@ public interface FlightService {
 	
 	public Optional<Flight> getFlightService(int flightId) throws FlightNotFoundException;
 	
+	public void addFlightService(Flight flight) throws FlightAlreadyExistsException;
 	
 	
 	

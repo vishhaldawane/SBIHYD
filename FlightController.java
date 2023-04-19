@@ -9,8 +9,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.sbi.pojo.Flight;
+import com.sbi.service.FlightAlreadyExistsException;
 import com.sbi.service.FlightNotFoundException;
 import com.sbi.service.FlightService;
 @RestController // REpresentational State Transfer | JSON
@@ -40,10 +44,23 @@ public class FlightController { // all the URLs are tested via the Postman
 		try {
 			flight = flightService.getFlightService(flightNumber);
 		} catch (FlightNotFoundException e) {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage()); //404
 		}
-		return ResponseEntity.of(flight);
+		return ResponseEntity.of(flight); //200
 				
+	}
+	
+	@PostMapping("/addFlight")
+	public ResponseEntity<?> addFlight(@RequestBody Flight flight) {
+		
+		
+		try {
+			flightService.addFlightService(flight);
+		} catch (FlightAlreadyExistsException e) {
+			return ResponseEntity.status(HttpStatus.FOUND).body(e.getMessage()); //404
+		}
+		return ResponseEntity.status(HttpStatus.CREATED).body("Flight Created"); 
+
 	}
 
 }
