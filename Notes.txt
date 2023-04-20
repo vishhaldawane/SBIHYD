@@ -940,6 +940,87 @@ In case if the hsql port already bound / occupied
 
 
 
+		layer1 - database scripts
+		layer2 - pojos
+
+		layer3 - repo
+		
+		layer4 - 
+
+
+
+
+Spring MVC 
+
+		http://ip:port/URIs
+	
+client	request		webserver			spring f/w
+	response	|				|	
+			|				|	
+			|				|
+		    Filters  		vs 		Interceptors
+
+
+
+	java servlet API
+
+	Filter <-- interface
+
+
+	doFilter() {					ServletFilter3
+							|
+						ServletFilter2
+			Tomcat			|*			Spring's		*
+	request-> ServletContainer->request->ServletFilter->request-->Dispatcher->request->Interceptor-> request	->BL/controller
+															   |Resources
+	response<-ServletContainer<-response<-ServletFilter<-response<--Dispatcher<-response<-Interceptor<- response
+													
+															
+
+	
+
+
+			Authentication		vs		Authorization
+			|					|
+			username				role/white list
+			password				or black list
+								based on that
+								u allow the 
+								resource to the user
+
+			user					READ
+			admin					READ + WRITE + DELETE
+
+
+							CrudRepository
+							|
+						CrudRepository
+						|	 |
+			PagingAndSortingRepository	UserRepository2
+				|
+				JpaRepository
+				|
+			UserRepository1
+
+	pom.xml
+	|
+	<spring-boot-starter-security> --> spring would implement
+						its own security model
+						to authenticate and authorize the users
+
+						|
+						we have to override this model
+
+
+							   DB
+							   |
+interfaces->	UserDetails		UserDetailsService |			SecurityConfiguration			
+		|7			|1		   |				|
+		|			|	UserRepository				|
+		|			|						|
+your impls=>	MyUserDetails		UserDetails loadUserByUsername(); <-----------configure(AuthenticationManagerBuilder auth)
+
+			
 
 
 
@@ -952,18 +1033,4 @@ In case if the hsql port already bound / occupied
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	
