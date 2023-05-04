@@ -1,0 +1,603 @@
+
+
+
+				What is Angular ?
+
+
+		front/end application
+		development
+		framework
+
+
+		framework = semideveloped application
+
+	
+		mvc pattern			vs		front/end mvc framework
+		|						|
+	model view controller				model	view	controller
+	|	|	|				|	|	   |
+	data pages	class				data	html/css  class written in typescript
+
+
+
+				Javascript			html			css
+				|							|
+			---------------						----------------
+			|	     |						|		|
+			.js    internally written inside html      internally for html		.css files
+
+
+
+		Login.html	
+			
+		
+			view		style		validation
+			|		|		|
+			html		css		javascript
+
+			[Login.html	Login.css	Login.js]
+					index.css	|
+					|		|	
+					open files	
+
+
+		bunch/collection html pages
+		with so many css files
+		with lot of javascripts
+		- open work
+
+		- Component driven framework
+			|
+			unit
+			
+				     PayeeComponent
+				|	    |		   |	
+			[Payee.html	Payee.css	Payee.ts]
+
+
+
+				FundTransferComponent
+					|
+				html  + css  + ts
+
+		MS-VS code
+
+		1.  Node js 
+
+		2.  npm commands to install the angular
+
+		
+				SBIProject
+					|
+			-------------------------
+			|
+			src
+			|
+		-------------------
+		|		|	
+		app		index.html
+		|		|
+	app.component.html	<app-root></app-root>
+	app.component.css
+	app.component.ts
+
+	|
+	user.component.html
+	user.component.css
+	user.component.ts
+
+
+
+				app.component.ts <--- first/default component of any angular app
+				|
+				@Component( <-- decorators	
+					selector : 'app-root' <-- <app-root> in index.html
+					templateUrl : 'app.component.html'
+					styleURLs : [ 'app.component.css' ]
+				)
+				class AppComponent
+				{
+					logic/actions/events alongwith DATA
+				}		
+
+		user.component.ts
+		|
+				@Component( <-- decorators	
+					selector : 'user-app' <-- <user-root> in app.component.html
+					templateUrl : 'user.component.html'
+					styleURLs : [ 'user.component.css' ]
+				)
+				class UserComponent 
+				{
+					User specific logic/actions/events alongwith DATA
+				}		
+		Hey angular make one payee component
+
+			$ ng g c  Payee
+						payee.component.ts
+						payee.component.html
+						payee.component.css
+
+
+			BootStrap
+			|
+			app, compA
+			|
+		-------------------
+		|		|
+		nestedB		nestedC
+
+
+
+
+
+
+		1. IN VS CODE terminal / or anywhere in windows command prompt
+			C:> ng new SBIProject
+
+		2. start VS code ( if it already not running)
+
+		3. open SBIProject - in VS CODE - open folder option
+
+		4. open VS code -> Temimal -> new Terminal (default is opened in POWER SHELL)
+
+		5. switch that to command prompt from the POWER SHELL ( PS: ) 
+
+
+		6. ng serve ( this will compile, build and host the app)
+
+		7. start the browser [ localhost:4200 ]
+
+		8. it will invoke index.html (observe the <app-root> in index.html)		
+
+		9. ng g c user --- this will create user.component.ts user.component.html/css
+		10. ng g c password ---- password.component.ts/html/css
+
+			ng generate component 
+
+				SBIProject
+					|
+			-------------------------
+			|
+			src
+			|
+		-------------------
+		|		|	
+		app		index.html
+		|		|
+	app.component.html	<app-root></app-root>
+	app.component.css
+	app.component.ts <- this file has @Component -> selctor : <app-root>
+		|
+	--------------------------
+	|			|
+	user <--selector	password <-selector:
+	[html/css/ts]		[html/css/ts]
+		
+
+
+								DB
+								|
+				Enterprise Application Server	|
+					Business Logic | Enterprise Application
+					|  Servlet | JSP pages
+					|		( generate the dynamic
+					|		view for the client)
+					|		|
+					| SPringMVC	| SpringREST
+					|			(end points)
+				[ web container ] [ enterprise container]
+				   servlet|jsp		session ejb| entity[JPA]
+					  |		
+			-------------------------
+			|
+			static
+			[ html ]
+			[ css/js ]
+		[ jsp pages output is travelled here]
+			user has to respond here 
+		
+		jsp pages / asp pages
+
+		25 =  5team x 5 team
+			|
+		------------------
+		|		|		|		|	 |
+	BankApplication	  BankDashBoard	  PayeeManagement  FundTransfer Statement
+	
+	
+
+		SPA - Single Page Application
+	
+
+			Single Page 
+			-----------------
+		inbox	|		|
+		outbox	|		|
+			|		|
+
+
+
+		Destructuring
+			| ( breaking the structure )
+		---------------------------
+		|			|
+		object			array
+		
+
+		var foo = {
+			xyz: {
+				pqr: 883
+			}
+		};
+	
+
+
+	var rectangle = { x:10, y:20, height:50, width:90};
+
+	console.log(rectangle.x, rectangle.y, rectangle.height, rectangle.width);
+
+	var { x,y,height,width } = rectangle;
+	
+	console.log(x,y,height,width);
+
+
+
+
+
+		Angular Architecture
+
+		- Modules [ packages ]
+		
+		- Components [ classes | bean ]
+				
+			AppComponent [ html/css .ts file ]
+
+			- logic - controlling logic - with UI /STYLE
+
+		- Template
+
+			Spring
+			|
+			src
+			|
+			main- template - html [ dynamic changes ]
+				static - *.html
+
+		- Meta Data 
+			- decorators to deal with the component
+
+		- Bindings
+			[ Data Binding ]
+				- one way 
+				- two way
+
+				data + methods/events
+				|
+				view <-- changes
+
+		- Directives
+				
+			various directives to interact with DOM
+
+		- Services
+			
+			not the UI components
+
+			reusable 
+
+			FundTransfer
+				|
+				transferFunds
+
+		- Dependency Inbjection
+			DI [ Ioc ]	
+
+
+
+	*ngIf - directive
+
+		
+		<div *ngIf="condition; else abc>
+			TRUE PART
+		</div>
+		
+		<ng-template #abc>
+			false part
+		</ng-template>
+
+
+
+		23 people
+
+		A banking Project
+			|
+		-------------------------------------------
+		|	|	|	|	|	|
+		Team1  Team2
+		4	4
+		
+
+
+		Make one component
+
+			SimpleInterestCalculator
+			|
+			Enter principal :50000
+			Enter years	:7
+			Enter rate	:8.4
+			Simple Interest :  <-- auto calculated
+
+
+
+
+
+
+
+	Spring/Dotnet As a BackEnd
+	|
+1	Tables [ highly normalized tables ]
+			one to one, one to many, many to many , many to one
+	|
+2	pojos - inter-related pojos with @Id, @Entity, @OneToOne, @OneToMany
+	|
+3	repos
+	|
+4	Service
+	|
+5	Controller
+	|
+------------------------------------------
+	in angular we are assuming the data in a memory based structure, array
+	which will act as a backend as if above 1 to 5 layers
+	|
+	pojos in angular, services, modules, pipes, hooks, routing, rxjs
+	|
+	word document- 
+		1. Bank Applicant - Team4
+		2. Fund Transfer - Team1
+		3. Payee management - Team2
+		4. Statement  - Team3
+		5. Dashboard - Team5
+			
+
+
+PARENT			app.component.ts			app.component.html
+				| selector : app-root		<app-admin  ..someinfo...>
+				| 				parent to recieve the data
+		-------------------------			from the child
+		|
+CHILD	admin.component.ts admin.component.html
+		| selector : <app-admin>
+		|		 we want child to recieve that parent's data
+		|		sometimes the child want to send some data
+				to the parent
+
+
+
+			@Input()
+
+			@Output()
+
+
+					| |  @Output
+				<----	| |	----
+	Parent	Component		| |		Child Component
+				----	| |	---->
+			data		| |  @Input()
+			   |		| |     item
+	<app-child [item]=data>			|	@Output
+		      |				|	|newItemEvent's emit() 
+	addItem()     +-------------------------+	|
+		|					| addItem() 
+		+---------------------------------------+
+
+
+
+Mallesh
+--------
+
+	A	B	C
+	|	|	| onFocus() to be triggered 
+	------------------
+		|
+		D
+
+	A,B is focused ( c is not in focus )
+		- D should triggern the event on A and B
+
+
+
+		
+	A
+	|
+	B
+	|
+	C
+	|
+	D <-- 
+
+
+
+	Feature Modules
+		- same like packages in java
+		- organize the components and services
+
+	Services
+		- custom services to invoke logic/fetch data from APIs
+
+	Life Cycle Hooks
+		- 8 functions
+	
+	UI Library
+		angular material library
+
+	-----------
+
+	Template driven forms   And Reactive forms (Model Driven Forms)
+
+	- with the validation part
+
+	Routing
+
+
+		Life Cycle Hooks / functions
+						implemented via specific interfaces
+
+		servlets
+		|
+		init()
+		service()
+		destroy()
+
+
+	constructor()
+	|
+	typescript/
+	javascript
+	function
+	|
+	Service Dependencies
+	Injection
+	- avoid intializing
+	the data structure
+ 						Angular F/w
+						|
+						ngOnInit()
+						|
+						use the data initialization code here
+
+	Parent					Child
+	|					|
+	Hooks					HooksChild
+						
+
+	contructor()
+
+1	ngOnInit() - called only once
+2		ngOnChanges() - called after a bound input property changes
+			- in this the primitive types are checked
+			- but the object types are not checked
+			( so the work around is the parent's update function 
+			should go for deep cloning / new object to be created
+			before sending it to the child)
+
+3		ngDoCheck() - called during every change detection run
+		
+4		ngAfter'Content'Init() - called afater child component content has been initialize
+5		ngAfter'Content'Checked()-called every time child component content has been checked
+
+6		ngAfter'View'Init() - called after child component view has been initialized
+7		ngAfter'View'Checked()-called every time child components view has been checked
+
+8	ngDestroy()- called once when the component is about to be destroyed
+
+
+-------------------------------------------------
+
+		
+	Featured Modules
+
+
+		
+		AppModule
+			|
+		----------------------------------------
+		|		|		|
+		BrowserModule AppRoutingModule	AppComponent
+						|
+				-----------------------------------
+				|		|		|
+				BankAccount	Payee		FundTransfer
+				|		|		|
+			CreditAccount		AddPayee	NeftTransfer	
+			SavingsAccount		ViewPayee	ImpsTranfer
+			CurrentAccount		DeletePayee	RtgsTransfer
+
+	ng g m bankaccount
+	ng g c bankaccount/CreditAccount
+	ng g c bankaccount/SavingsAccount
+	ng g c bankaccount/CurrentAccount
+
+	in teh bankaccount.module.ts
+	|
+	exports : [
+		put the component names here which to be availed
+		outside of this module
+	]
+
+	ng g m Payee
+	ng g c payee/AddPayee
+	ng g c payee/ViewPayee
+
+
+	goto
+	app.module.ts
+	|
+	imports : [
+		put the BankAccount Modulename here <-- to avail its components
+	
+	]
+
+
+
+
+	---
+
+1	ng g m forest
+		|
+		forest.module.ts
+			|
+2.1		ng g c forest/elephant
+2.2		ng g p forest/play
+2.3		ng g s forest/convert
+
+3	open the forest.module.ts
+	and put these names
+	inside 
+4		exports ; [ ]  <- array - to avail them outside of the package
+
+	and to avail this forest module into appcomponent
+	
+5	- goto the app.module.ts
+		imports : [
+6			ForestModule <-- avail this module and its content here
+		]
+
+7.	use these forest/contents here in appcomponent 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
