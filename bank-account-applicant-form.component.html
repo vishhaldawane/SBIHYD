@@ -1,0 +1,73 @@
+<div class="px-5">
+    <form class="col-md-6" #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+
+        <div class="form-group m5-3">
+            <label for="FirstName">First Name</label>
+            <input type="text" required id="firstName" name="first" class="form-control" #firstName="ngModel" [(ngModel)]="applicantDetails.firstName">         
+            <span *ngIf="firstName.invalid && firstName.touched" 
+            style="color:red"> First Name Is Invalid </span>
+        </div>
+        
+        <div class="form-group m5-3">
+            <label for="LastName">Last Name</label>
+            <input type="text" id="lastName" name="lastName" class="form-control" ngModel [(ngModel)]="applicantDetails.lastName">         
+        </div>
+
+        <div class="form-group m5-3">
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" class="form-control" ngModel>         
+        </div>
+
+        <div class="form-group m5-3">
+            <label for="gender">Gender</label>
+            <br>
+            <input type="radio" value="male" id="gender" name="gender"  ngModel> Male        
+            <input type="radio" value="female" id="gender" name="gender"  ngModel> Female        
+        </div>
+
+        <div class="form-group m5-3">
+            <label for="country">Country</label>
+            <br>
+            <select class="form-select form-select-sm mb-3" area-label=".form-select-lg example" name="country" id="country" ngModel [(ngModel)]="applicantDetails.country">        
+                <option *ngFor="let country of countryList">{{country}}</option>
+                <!-- <option value="France">France</option>
+                <option value="Germany">Germany</option>
+                <option value="London">London</option>
+                <option value="Brazil">Brazil</option>    -->
+            </select>    
+        </div>
+
+                <label>Address:</label>
+                    <div class="px-5" ngModelGroup="address">
+                        <div class="form-group m5-3">
+                            <label for="City">City</label>
+                            <input type="text" id="city" name="city" class="form-control" ngModel>         
+                        </div>
+                        <div class="form-group m5-3">
+                            <label for="Street">Street</label>
+                            <input type="text" id="street" name="street" class="form-control" ngModel>         
+                        </div>          <div class="form-group m5-3">
+                            <label for="Pin">Pin</label>
+                            <input type="text" id="pin" name="pin" class="form-control" ngModel>         
+                        </div>
+                    </div>
+        <input class="form-check-input" type="checkbox" value="" name="terms" id="terms" checked ngModel>
+        <label class="form-check-label px-2" for="terms"> 
+            All infromation provided by me is correct
+        </label>
+        
+
+        
+
+
+        <div class="form-group m5-3">
+            <button type="submit" class="btn btn-primary mx-4">Register</button>         
+            <button type="button" class="btn btn-success" (click)="resetForm(userForm)">Reset</button>         
+
+        </div>
+
+    </form>
+</div>
+
+
+
