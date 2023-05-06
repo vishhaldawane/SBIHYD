@@ -1,0 +1,52 @@
+<!-- for @Input @Output with child component
+<app-myparent></app-myparent>
+
+<a routerLink = "admin"> Admin </a>
+<a routerLink = "app-myhooks"> | Hooks </a>
+
+<router-outlet></router-outlet>
+
+-->
+
+Enter source <input type="text" [(ngModel)]="src"> <br>
+Enter target <input type="text" [(ngModel)]="trg"> <br>
+Enter amount <input type="number" [(ngModel)]="amt"> <br>
+<button (click)="convertIt()">Convert It</button>
+
+<hr>
+
+Enter payee Id <input type="number" [(ngModel)]="localPayee.payeeId" > <br>
+Enter payee Name <input type="text" [(ngModel)]="localPayee.payeeName" > <br>
+Enter payee IFSC <input type="text" [(ngModel)]="localPayee.payeeIFSC"> <br>
+Enter payee nickname <input type="text" [(ngModel)]="localPayee.payeeNickName"> <br>
+<button (click)="addThePayee()">Add Payee</button>
+
+<h2>Showing all the payees </h2>
+<table>
+    <thead>
+        <tr>
+            <th>PayeeId</th>
+            <th>PayeeName</th>
+            <th>PayeeIFSC</th>
+            <th>PayeeNICKNAME</th>
+            
+        </tr>
+    </thead>
+    <tr *ngFor="let payee of payeeList">
+            <td>{{payee.payeeId}}</td>
+            <td>{{payee.payeeName}}</td>
+            <td>{{payee.payeeIFSC}}</td>
+            <td>{{payee.payeeNickName}}</td>
+    </tr>
+</table>
+
+
+
+
+
+
+
+
+
+
+
