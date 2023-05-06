@@ -1,0 +1,56 @@
+<p>bank-applicant-form works!</p>
+
+<div>
+    <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+
+        <div>
+            <label for="FirstName">FirstName</label>
+            <input type="text" id="firstName" name="firstName" ngModel [(ngModel)]="applicant.firstName"> <br>
+        </div>
+
+        <div>
+            <label for="LastName">LastName</label>
+            <input type="text" id="lastName" name="lastName" ngModel [(ngModel)]="applicant.lastName"> <br>
+        </div>
+
+        <div>
+            <label for="LastName">Email</label>
+            <input type="text" id="email" name="email" ngModel [(ngModel)]="applicant.email"> <br>
+        </div>
+
+        <div>
+            <label for="gender">Gender</label>
+            <input type="radio" id="gender" name="gender" value="male" ngModel [(ngModel)]="applicant.gender"> Male 
+            <input type="radio" id="gender" name="gender" value="female" ngModel [(ngModel)]="applicant.gender"> Female    
+        </div>
+
+        <div>
+            <label for="country">Country</label>
+            <select id="country" name="country" ngModel [(ngModel)]="applicant.country">
+                <option *ngFor="let country of countries">{{country}}</option>
+            </select>
+        </div>
+
+            <label>Detailed Address</label>
+            <div ngModelGroup="address">
+                <div>
+                    <label for="city">City</label>
+                    <input type="text" id="city" name="city" ngModel [(ngModel)]="applicant.address.city"> <br>
+                </div>
+
+                <div>
+                    <label for="street">street</label>
+                    <input type="text" id="street" name="street" ngModel > <br>
+                </div>
+
+                <div>
+                    <label for="pin">pin</label>
+                    <input type="text" id="pin" name="pin" ngModel > <br>
+                </div>
+            </div>
+
+        <button>Register</button>
+        <button (click)="resetIt(userForm)">Reset</button>
+        
+    </form>
+</div>
