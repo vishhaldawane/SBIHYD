@@ -1,0 +1,46 @@
+<div class="container mt4">
+    <h1> Reactive Form with Validation </h1>
+
+    <form [formGroup]="registerForm" class="form" (ngSubmit)="registerTheForm()">
+
+        <div class="mb-3">
+            <label for="fname" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="fname" placeholder="Enter First Name" formControlName="fname">
+        </div>
+
+        <div class="mb-3">
+            <label for="lname" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="lname" placeholder="Enter LastName" formControlName="lname">
+        </div>
+
+        <div class="mb-3">
+            <label for="age" class="form-label">Age</label>
+            <input type="text" class="form-control" id="age" placeholder="Enter Age" formControlName="age">
+        </div>
+
+        <div class="mb-3">
+            <label for="mobile" class="form-label">Mobile</label>
+            <input type="text" class="form-control" id="mobile" placeholder="Enter Mobile" formControlName="mobile">
+        </div>
+
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter Email" formControlName="email">
+        </div>
+
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="Enter Password" formControlName="password">
+        </div>
+
+        <div class="mb-3">
+            <label for="confirmPassword" class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" id="confirmPassword" placeholder="Enter Confirmed Password" formControlName="confirmPassword">
+        </div>
+
+        <div class="mb-3">
+            <button type="submit" class="btn btn-success">Register</button>
+        </div>
+
+    </form>
+</div>
