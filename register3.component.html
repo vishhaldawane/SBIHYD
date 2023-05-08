@@ -1,3 +1,4 @@
+
 <div class="container mt4">
     <h1> Reactive Form with Validation </h1>
 
@@ -6,41 +7,138 @@
         <div class="mb-3">
             <label for="fname" class="form-label">First Name</label>
             <input type="text" class="form-control" id="fname" placeholder="Enter First Name" formControlName="fname">
+            <div *ngIf="getControl('fname')?.errors &&
+                        getControl('fname')?.touched">
+                <small class="text-danger" 
+                *ngIf="getControl('fname')?.errors?.['required']">
+                First Name Required</small>
+
+                <small class="text-danger" 
+                *ngIf="getControl('fname')?.errors?.['maxlength']">
+                Only 32 characters are allowed</small>
+
+            </div>            
         </div>
 
         <div class="mb-3">
             <label for="lname" class="form-label">Last Name</label>
             <input type="text" class="form-control" id="lname" placeholder="Enter LastName" formControlName="lname">
+            <div *ngIf="getControl('lname')?.errors &&
+                        getControl('lname')?.touched">
+                <small class="text-danger" 
+                *ngIf="getControl('lname')?.errors?.['required']">
+                Last Name Required</small>
+
+                <small class="text-danger" 
+                *ngIf="getControl('lname')?.errors?.['maxlength']">
+                Only 32 characters are allowed</small>
+
+            </div>           
         </div>
 
         <div class="mb-3">
             <label for="age" class="form-label">Age</label>
             <input type="text" class="form-control" id="age" placeholder="Enter Age" formControlName="age">
+            <div *ngIf="getControl('age')?.errors &&
+                getControl('age')?.touched">
+
+                <small class="text-danger" 
+                *ngIf="getControl('age')?.errors?.['required']">
+                Age required</small>
+
+                <small class="text-danger" 
+                *ngIf="getControl('age')?.errors?.['min'] || getControl('age')?.errors?.['max']">
+                Age must be between 18 to 60</small>
+
+                <small class="text-danger" 
+                *ngIf="getControl('age')?.errors?.['pattern']">
+                | Age must be of 2 digits</small>
+
+            </div>  
         </div>
 
         <div class="mb-3">
             <label for="mobile" class="form-label">Mobile</label>
             <input type="text" class="form-control" id="mobile" placeholder="Enter Mobile" formControlName="mobile">
+            <div *ngIf="getControl('mobile')?.errors &&
+                getControl('mobile')?.touched">
+                <small class="text-danger" 
+                *ngIf="getControl('mobile')?.errors?.['required']">
+                Mobile required</small>
+
+                <small class="text-danger" 
+                *ngIf="getControl('mobile')?.errors?.['maxlength'] || getControl('mobile')?.errors?.['minlength']">
+                Mobile must be of 10 digits</small>
+
+            </div>  
         </div>
 
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>
             <input type="email" class="form-control" id="email" placeholder="Enter Email" formControlName="email">
+            <div *ngIf="getControl('email')?.errors &&
+                getControl('email')?.touched">
+                <small class="text-danger" 
+                *ngIf="getControl('email')?.errors?.['required']">
+                Email required</small>
+
+                <small class="text-danger" 
+                *ngIf="getControl('email')?.errors?.['maxlength']">
+                Email can be of max 32 characters</small>
+
+                <small class="text-danger" 
+                *ngIf="getControl('email')?.errors?.['pattern']">
+                Please enter a valid email</small>
+
+            </div>  
         </div>
 
         <div class="mb-3">
             <label for="password" class="form-label">Password</label>
             <input type="password" class="form-control" id="password" placeholder="Enter Password" formControlName="password">
+            <div *ngIf="getControl('password')?.errors &&
+            getControl('password')?.touched">
+            <small class="text-danger" 
+            *ngIf="getControl('password')?.errors?.['required']">
+            Password required</small>
+
+            <small class="text-danger" 
+            *ngIf="getControl('password')?.errors?.['minlength'] || getControl('password')?.errors?.['maxlength']">
+            Password must be min 8 and max 32 letters long</small>
+
+        </div>  
         </div>
 
         <div class="mb-3">
             <label for="confirmPassword" class="form-label">Confirm Password</label>
             <input type="password" class="form-control" id="confirmPassword" placeholder="Enter Confirmed Password" formControlName="confirmPassword">
+            <div *ngIf="getControl('confirmPassword')?.errors && getControl('confirmPassword')?.touched">
+                <small class="text-danger" *ngIf="getControl('confirmPassword')?.errors?.['required']">
+                Confirm Password required</small>
+
+                <small class="text-danger" 
+                *ngIf="getControl('confirmPassword')?.errors?.['minlength'] || getControl('confirmPassword')?.errors?.['maxlength']">
+                Confirm Password must be min 8 and max 32 letters long</small>
+    
+            </div>  
+        </div>
+
+        <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" 
+            formControlName="acceptTerms"
+            >
+            <label for="acceptTerms" class="form-check-label">I have read and agreed to the terms of this form</label>
         </div>
 
         <div class="mb-3">
             <button type="submit" class="btn btn-success">Register</button>
         </div>
+        
+        <div class="mb-3">
+            <button type="button" class="btn btn-warning float-right" 
+            (click)="onReset()">Reset</button>
+        </div>
+        
 
     </form>
 </div>
