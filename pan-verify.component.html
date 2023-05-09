@@ -1,0 +1,69 @@
+<div class="container mt-4">
+    <h1 class="text-center">Template driven form with validation in simplest way</h1>
+    <form #register="ngForm" (ngSubmit)="register.form.valid && registerFn()" [appPanVerify]="['lname', 'pan']">
+      <div class="mb-3">
+        <label for="fname" class="form-label">First Name</label>
+        <input type="text" class="form-control" id="fname" placeholder="First Name" [(ngModel)]="form.fname" name="fname" #fname="ngModel" required maxlength="32" [ngClass]="{error : fname.errors && fname.touched}">
+        <div *ngIf="fname.errors && fname.touched">
+          <small class="text-danger" *ngIf="fname.errors['required']">First Name is required.</small>
+          <small class="text-danger" *ngIf="fname.errors['maxlength']">Maximum 32 characters are allowed.</small>
+        </div>
+      </div>
+  
+   
+  
+      <div class="mb-3">
+        <label for="lname" class="form-label">Last Name</label>
+        <input type="text" class="form-control" id="lname" placeholder="Last Name" [(ngModel)]="form.lname" name="lname" #lname="ngModel" required maxlength="32" [ngClass]="{error : lname.errors && lname.touched}">
+        <div *ngIf="lname.errors && lname.touched">
+          <small class="text-danger" *ngIf="lname.errors['required']">Last Name is required.</small>
+          <small class="text-danger" *ngIf="lname.errors['maxlength']">Maximum 32 characters are allowed.</small>
+        </div>
+      </div>
+  
+      <div class="mb-3">
+        <label for="pan" class="form-label">PAN</label>
+        <input type="text" class="form-control" id="pan" placeholder="PAN" [(ngModel)]="form.pan" name="pan" #pan="ngModel" required maxlength="10" [pattern]="panRegex"  [ngClass]="{error : pan.errors && pan.touched}">
+        <div *ngIf="(pan.errors && pan.touched) || (register.errors?.['panId'] && pan.touched)">
+          <small class="text-danger" *ngIf="pan?.errors?.['required']">Pan no. is required</small><br>  
+          <small class="text-danger" *ngIf="pan?.errors?.['maxlength'] || pan?.errors?.['pattern'] || register.errors?.['panId']">Pan no. is invalid.</small>
+        </div>  
+      </div>
+  
+   
+  
+      <div class="mb-3">
+        <label for="age" class="form-label">Age</label>
+        <input type="number" class="form-control" id="age" placeholder="Age" [(ngModel)]="form.age" name="age" #age="ngModel" required min="18" max="60" [pattern]="integerRegex" [ngClass]="{error : age.errors && age.touched}">
+        <div *ngIf="age.errors && age.touched">
+          <small class="text-danger" *ngIf="age.errors['required']">Age is required.</small>
+          <small class="text-danger" *ngIf="age.errors['max'] || age.errors['min']">Age must be in between 18 years to 60 years.</small><br>
+          <small class="text-danger" *ngIf="age.errors['pattern']">Please enter a valid age.</small>
+        </div>
+      </div>
+  
+      <div class="mb-3">
+        <label for="mobile" class="form-label">Mobile</label>
+        <input type="text" class="form-control" id="mobile" placeholder="Mobile" [(ngModel)]="form.mobile" name="mobile" #mobile="ngModel" required minlength="10" maxlength="10" [pattern]="integerRegex" [ngClass]="{error : mobile.errors && mobile.touched}">
+        <div *ngIf="mobile.errors && mobile.touched">
+          <small class="text-danger" *ngIf="mobile.errors['required']">Mobile field is required.</small>
+          <small class="text-danger" *ngIf="mobile.errors['maxlength'] || mobile.errors['minlength'] || mobile.errors['pattern']">Please enter a valid mobile no.</small>
+        </div>
+      </div>
+  
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" placeholder="Email" [(ngModel)]="form.email" name="email" #email="ngModel" required maxlength="32" [pattern]="emailRegex" [ngClass]="{error : email.errors && email.touched}">
+        <div *ngIf="email.errors && email.touched">
+          <small class="text-danger" *ngIf="email.errors['required']">Email field is required.</small>
+          <small class="text-danger" *ngIf="email.errors['maxlength']">Email should be maximum 32 character long.</small>
+          <small class="text-danger" *ngIf="email.errors['pattern']">Please enter a valid email.</small>
+        </div>
+      </div>
+  
+      <div class="mb-3">
+        <input type="submit" class="btn btn-success" [disabled]="register.form.status==='INVALID'">
+      </div>
+
+    </form>  
+  </div>
